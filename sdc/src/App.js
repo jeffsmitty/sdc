@@ -44,11 +44,13 @@ class App extends Component {
 							componentId="Keyword"
 							dataField="metadata.resourceInfo.keyword.keyword.keyword.keyword"
 							title="Keywords"
+							URLParams={true}
 						/>	
 						<MultiList
 							componentId="Author"
 							dataField="contact.name.keyword"
 							title="Authors"
+							URLParams={true}
 						/>	
 					</div>
 					
@@ -62,6 +64,7 @@ class App extends Component {
 							dataField={["metadata.resourceInfo.citation.title", "metadata.resourceInfo.abstract"]}
 							autosuggest={true}
 							showFilter={true}
+							URLParams={true}
 						/>
 						<ReactiveList
 							componentId="SearchResult"
