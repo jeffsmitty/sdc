@@ -45,12 +45,18 @@ class App extends Component {
 							dataField="metadata.resourceInfo.keyword.keyword.keyword.keyword"
 							title="Keywords"
 							URLParams={true}
+							react={{
+								"and": ["Keyword","Author","Text Search"]
+							}}
 						/>	
 						<MultiList
 							componentId="Author"
 							dataField="contact.name.keyword"
 							title="Authors"
 							URLParams={true}
+							react={{
+								"and": ["Keyword","Author","Text Search"]
+							}}
 						/>	
 					</div>
 					
@@ -72,7 +78,7 @@ class App extends Component {
 							pagination={true}
 							paginationAt="bottom"
 							react={{
-								"and": ["Keyword","Text Search","Author","KeywordCloud"]
+								"and": ["Keyword","Text Search","Author"]
 							}}
 							loader="Loading Results.."
 							renderItem={(res) => 
