@@ -118,7 +118,9 @@ footer hr {
 footer.footer {
 	background: #00264c;
 	padding-bottom: 0px;
-	position: relative;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 	width: 100%;
 	border-top: 1px solid #E5E5E5;
 }
