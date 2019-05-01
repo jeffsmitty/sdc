@@ -41,7 +41,8 @@
 
 .display {
   display: flex;
-  margin-top: 60px;
+  margin-top: 10px;
+  margin-bottom: 100px;
 }
 
 .filterHeader {
@@ -62,7 +63,7 @@
 }
 
 .leftSidebar > div {
-  margin: 40px 0;
+  margin: 10px 10px 40px 10px;
 }
 
 @media all and (max-width: 768px) {

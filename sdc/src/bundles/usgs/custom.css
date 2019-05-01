@@ -5,3 +5,7 @@
 .footer hr {
 	border-top: 1px solid rgb(255, 255, 255);
 }
+
+.result-data {
+	margin-top: 10px;
+}
