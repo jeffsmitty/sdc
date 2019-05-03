@@ -5,10 +5,10 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  background-color: #3a6d85;
+  background-color: #0056b3;
   color: #fff;
-  height: 60px;
-  font-size: 20px;
+  height: 40px;
+  font-size: 16px;
   letter-spacing: 0.05rem;
   font-weight: bold;
 }
@@ -16,6 +16,10 @@
 .logo {
   margin-left: 16px;
   float: left;
+}
+
+.logo-header img {
+  height: 50px;
 }
 
 .datasearch {
@@ -31,6 +35,10 @@
 
 .datasearch .search-icon {
   padding: 0 10px;
+}
+
+.footer hr {
+  border-top: 1px solid rgb(255, 255, 255);
 }
 
 .suggestionlist {
@@ -110,6 +118,10 @@
   overflow: hidden;
 }
 
+.result-data {
+  margin-top: 10px;
+}
+
 .result-data .result-item {
   box-shadow: none;
   border: 1px solid #ccc;
@@ -127,6 +139,7 @@
   color: #0b7185;
   font-size: 18px;
   padding: 5px;
+  font-style: italic;
 }
 
 .result-data .result-abstract {
