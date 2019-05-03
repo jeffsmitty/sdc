@@ -1,3 +1,7 @@
+.breadcrumb {
+  margin-bottom: 0px;
+}
+
 .navbar {
   width: 100%;
   top: 0;
@@ -49,7 +53,6 @@
 
 .display {
   display: flex;
-  margin-top: 10px;
   margin-bottom: 100px;
 }
 
@@ -102,7 +105,6 @@
   position: relative;
   left: 320px;
   padding: 10px 30px;
-  background-color: #fefefe;
 }
 
 @media all and (max-width: 768px) {

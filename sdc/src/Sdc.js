@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./Sdc.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./bundles/usgs/common.css";
+import "./Sdc.css";
+import "./black.css";
 import Usgsheader from "./bundles/usgs/usgsheader.js";
 import Usgsfooter from "./bundles/usgs/usgsfooter.js";
 import {
@@ -39,14 +41,18 @@ function SdcApp() {
 function Sdchome() {
   return (
     <div>
-    <Breadcrumb>
-    <Breadcrumb.Item active><Link to="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">Science, Analytics, and Synthesis</Link></Breadcrumb.Item>
-    <Breadcrumb.Item active>Science Data Catalog Home</Breadcrumb.Item>
-  </Breadcrumb>
-    <div>
-      <h2>Science Data Catalog Home</h2>
-      <Link to="/search">Search the catalog</Link>
-    </div>
+      <Breadcrumb>
+        <Breadcrumb.Item active>
+          <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
+            Science, Analytics, and Synthesis
+          </a>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>Science Data Catalog Home</Breadcrumb.Item>
+      </Breadcrumb>
+      <div>
+        <h2>Science Data Catalog Home</h2>
+        <Link to="/search">Search the catalog</Link>
+      </div>
     </div>
   );
 }
@@ -55,8 +61,14 @@ function Search() {
   return (
     <div>
       <Breadcrumb>
-      <Breadcrumb.Item active><Link to="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">Science, Analytics, and Synthesis</Link></Breadcrumb.Item>
-        <Breadcrumb.Item><Link to="/">Science Data Catalog Home</Link></Breadcrumb.Item>
+        <Breadcrumb.Item active>
+          <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
+            Science, Analytics, and Synthesis
+          </a>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/">Science Data Catalog Home</Link>
+        </Breadcrumb.Item>
         <Breadcrumb.Item active>Search</Breadcrumb.Item>
       </Breadcrumb>
       <div>
@@ -64,6 +76,7 @@ function Search() {
           app="sdc_items"
           credentials="ixlwb0m0pz:ammkd2jkkk"
           url="https://sdc-testing-3352148807.us-east-1.bonsaisearch.net"
+          themePreset="dark"
         >
           <div className="display">
             <div className="leftSidebar">
@@ -143,22 +156,39 @@ function Search() {
 function Items({ match }) {
   return (
     <div>
-      <h2>Item Landing Page</h2>
-      <ul>
-        <li>
-          <Link to={`${match.url}/1`}>Item 1</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/2`}>Item 2</Link>
-        </li>
-      </ul>
+      <Breadcrumb>
+        <Breadcrumb.Item>
+          <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
+            Science, Analytics, and Synthesis
+          </a>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/">Science Data Catalog Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/search">Search</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>Item - </Breadcrumb.Item>
+      </Breadcrumb>
 
-      <Route path={`${match.path}/:itemId`} component={Item} />
-      <Route
-        exact
-        path={match.path}
-        render={() => <h3>Please select an item</h3>}
-      />
+      <div>
+        <h2>Item Landing Page</h2>
+        <ul>
+          <li>
+            <Link to={`${match.url}/1`}>Item 1</Link>
+          </li>
+          <li>
+            <Link to={`${match.url}/2`}>Item 2</Link>
+          </li>
+        </ul>
+
+        <Route path={`${match.path}/:itemId`} component={Item} />
+        <Route
+          exact
+          path={match.path}
+          render={() => <h3>Please select an item</h3>}
+        />
+      </div>
     </div>
   );
 }
