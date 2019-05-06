@@ -30,7 +30,7 @@ function SdcApp() {
         <div>
           <Route exact path="/" component={Sdchome} />
           <Route path="/search" component={Search} />
-          <Route path="/items" component={Items} />
+          <Route path="/item/:itemId" component={Item} />
         </div>
       </Router>
       <Usgsfooter />
@@ -135,7 +135,9 @@ function Search() {
                         <Card.Text>
                           {res.metadata.resourceInfo.abstract}
                         </Card.Text>
-                        <span className = "cardViewLinksTitle"><Card.Link>View as: </Card.Link></span>
+                        <span className="cardViewLinksTitle">
+                          <Card.Link>View as: </Card.Link>
+                        </span>
                         <Card.Link href="#">HTML</Card.Link>
                         <Card.Link href="#">JSON</Card.Link>
                         <Card.Link href="#">XML</Card.Link>
@@ -157,7 +159,7 @@ function Search() {
   );
 }
 
-function Items({ match }) {
+function Item({ match }) {
   return (
     <div>
       <Breadcrumb>
@@ -169,39 +171,12 @@ function Items({ match }) {
         <Breadcrumb.Item>
           <Link to="/">Science Data Catalog Home</Link>
         </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link to="/search">Search</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Item - </Breadcrumb.Item>
+        <Breadcrumb.Item active>Item #{match.params.itemId} </Breadcrumb.Item>
       </Breadcrumb>
 
       <div>
-        <h2>Item Landing Page</h2>
-        <ul>
-          <li>
-            <Link to={`${match.url}/1`}>Item 1</Link>
-          </li>
-          <li>
-            <Link to={`${match.url}/2`}>Item 2</Link>
-          </li>
-        </ul>
-
-        <Route path={`${match.path}/:itemId`} component={Item} />
-        <Route
-          exact
-          path={match.path}
-          render={() => <h3>Please select an item</h3>}
-        />
+        <h2>Sample Item Landing Page - Item {match.params.itemId}</h2>
       </div>
-    </div>
-  );
-}
-
-function Item({ match }) {
-  console.info(match.params.itemId);
-  return (
-    <div>
-      <h3>Item {match.params.itemId}</h3>
     </div>
   );
 }
