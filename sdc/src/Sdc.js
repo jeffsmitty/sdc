@@ -135,6 +135,10 @@ function Search() {
                         <Card.Text>
                           {res.metadata.resourceInfo.abstract}
                         </Card.Text>
+                        <span className = "cardViewLinksTitle"><Card.Link>View as: </Card.Link></span>
+                        <Card.Link href="#">HTML</Card.Link>
+                        <Card.Link href="#">JSON</Card.Link>
+                        <Card.Link href="#">XML</Card.Link>
                       </Card.Body>
                     </Card>
                   </div>
