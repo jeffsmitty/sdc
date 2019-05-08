@@ -138,8 +138,8 @@ function Search() {
                         <span className="cardViewLinksTitle">
                           <Card.Link>View as: </Card.Link>
                         </span>
-                        <Card.Link href="#">HTML</Card.Link>
-                        <Card.Link href="#">JSON</Card.Link>
+                        <Card.Link href={'item/' + res._id}>HTML</Card.Link>
+                        <Card.Link href="#">mdJSON</Card.Link>
                         <Card.Link href="#">XML</Card.Link>
                       </Card.Body>
                     </Card>
@@ -160,6 +160,7 @@ function Search() {
 }
 
 function Item({ match }) {
+  console.info(match);
   return (
     <div>
       <Breadcrumb>
