@@ -82,17 +82,6 @@ class Usgsheader extends React.Component {
                   </i>
                 </a>
               </li>
-              <li className="googleplus">
-                <a
-                  href="https://plus.google.com/112624925658443863798/posts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fa fa-google-plus-square">
-                    <span className="only">Google+</span>
-                  </i>
-                </a>
-              </li>
               <li className="github">
                 <a
                   href="https://github.com/usgs"

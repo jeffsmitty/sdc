@@ -1,5 +1,5 @@
 import React from 'react';
-import usgslogo from './usgslogo.png';
+import Usgslogo from "./usgslogo.png";
 import {Container, Row, Col} from 'react-bootstrap';
 
 class Usgsheader extends React.Component {
@@ -10,7 +10,7 @@ class Usgsheader extends React.Component {
                     <Row>
                         <Col className='header-nav'>
                             <a className="logo-header" href="https://www.usgs.gov/" title="Home">
-                                <img src={usgslogo} alt="Logo"/>
+                            <img src = {Usgslogo} alt="Usgs logo"></img>
                             </a>
                         </Col>
                     </Row>

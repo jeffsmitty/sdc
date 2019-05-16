@@ -1,11 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import "./bundles/usgs/common.css";
-import "./Sdc.css";
-import "./black.css";
-import Usgsheader from "./bundles/usgs/usgsheader.js";
-import Usgsfooter from "./bundles/usgs/usgsfooter.js";
+import "../../styles/common.css";
+import "../../styles/sdc.css";
+import "../../styles/black.css";
 import {
   ReactiveBase,
   MultiList,
@@ -15,60 +12,14 @@ import {
 } from "@appbaseio/reactivesearch";
 import { Card, Breadcrumb } from "react-bootstrap";
 
-function SdcApp() {
-  return (
-    <div>
-      <Usgsheader />
-      <div className="subheader" />
-      <div className="navbar">
-        <div className="logo">
-          USGS Science Data Catalog - Proof of Concept App using React Framework
-          and Elasticsearch
-        </div>
-      </div>
-      <Router>
-        <div>
-          <Route exact path="/" component={Sdchome} />
-          <Route path="/search" component={Search} />
-          <Route path="/item/:itemId" component={Item} />
-        </div>
-      </Router>
-      <Usgsfooter />
-    </div>
-  );
-}
-
-function Sdchome() {
+const Search = () => {
   return (
     <div>
       <Breadcrumb>
-        <Breadcrumb.Item active>
-          <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
-            Science, Analytics, and Synthesis
-          </a>
+        <Breadcrumb.Item href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
+          Science, Analytics, and Synthesis (SAS)
         </Breadcrumb.Item>
-        <Breadcrumb.Item active>Science Data Catalog Home</Breadcrumb.Item>
-      </Breadcrumb>
-      <div>
-        <h2>Science Data Catalog Home</h2>
-        <Link to="/search">Search the catalog</Link>
-      </div>
-    </div>
-  );
-}
-
-function Search() {
-  return (
-    <div>
-      <Breadcrumb>
-        <Breadcrumb.Item active>
-          <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
-            Science, Analytics, and Synthesis
-          </a>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link to="/">Science Data Catalog Home</Link>
-        </Breadcrumb.Item>
+        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
         <Breadcrumb.Item active>Search</Breadcrumb.Item>
       </Breadcrumb>
       <div>
@@ -138,7 +89,7 @@ function Search() {
                         <span className="cardViewLinksTitle">
                           <Card.Link>View as: </Card.Link>
                         </span>
-                        <Card.Link href={'item/' + res._id}>HTML</Card.Link>
+                        <Card.Link href={"item/" + res._id}>HTML</Card.Link>
                         <Card.Link href="#">mdJSON</Card.Link>
                         <Card.Link href="#">XML</Card.Link>
                       </Card.Body>
@@ -157,29 +108,6 @@ function Search() {
       </div>
     </div>
   );
-}
+};
 
-function Item({ match }) {
-  console.info(match);
-  return (
-    <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>
-          <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis">
-            Science, Analytics, and Synthesis
-          </a>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link to="/">Science Data Catalog Home</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Item #{match.params.itemId} </Breadcrumb.Item>
-      </Breadcrumb>
-
-      <div>
-        <h2>Sample Item Landing Page - Item {match.params.itemId}</h2>
-      </div>
-    </div>
-  );
-}
-
-export default SdcApp;
+export default Search;
